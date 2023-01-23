@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import logo from "./logo.svg";
+import "./Weather.css";
 
 export default function Weather(props) {
   function handleResponse(response) {
@@ -39,7 +40,7 @@ export default function Weather(props) {
                   placeholder="Type a City..."
                   id="city-input"
                   className="form-control"
-                  autocomplete="off"
+                  autocomplete="on"
                 />
               </div>
               <div className="col-3">
