@@ -59,6 +59,7 @@ export default function WeatherInfo(props) {
         <a
           href="https://github.com/digitaleAffen/weather-app-react-2"
           target="_blank"
+          rel="noreferrer"
         >
           open-sourse on GitHub
         </a>
