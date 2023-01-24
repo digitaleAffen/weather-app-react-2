@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "./logo.svg";
 import "./Weather.css";
-import CurrentDate from "./CurrentDate";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     console.log(response.data);
 
@@ -22,13 +22,29 @@ export default function Weather(props) {
     });
   }
 
+  function search() {
+    const apiKey = "a43564c91a6c605aeb564c9ed02e3858";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.ready) {
     // todo
     return (
       <div className="Today">
         <div className="Container project">
           <div className="card">
-            <form id="city-form" className="mb-3">
+            <form onSubmit={handleSubmit} className="mb-3">
               <div className="row">
                 <div className="col-9">
                   <input
@@ -37,6 +53,7 @@ export default function Weather(props) {
                     id="city-input"
                     className="form-control"
                     autoComplete="on"
+                    onChange={updateCity}
                   />
                 </div>
                 <div className="col-3">
@@ -48,90 +65,13 @@ export default function Weather(props) {
                 </div>
               </div>
             </form>
-
-            <div className="row">
-              <div className="col-5 city">
-                <h2 id="greetings">
-                  <i className="fa-solid fa-calendar-day"></i> Today in
-                </h2>
-                <h1>{weatherData.city}</h1>
-
-                <img
-                  src={weatherData.imgLink}
-                  alt="cloudy day"
-                  width="100"
-                  className="float-left"
-                  id="icon"
-                />
-              </div>
-
-              <div className="col-4">
-                <div className="today-temperature">
-                  <span className="temperature">
-                    {Math.round(weatherData.temperature)}
-                  </span>
-
-                  <span className="units">
-                    <span href="#" id="celsius-link" className="active">
-                      °C
-                    </span>{" "}
-                    |
-                    <span href="#" id="fahrenheit-link">
-                      °F
-                    </span>
-                  </span>
-                  <ul>
-                    <li id="feels-like"></li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-3">
-                <ul>
-                  <li>
-                    <CurrentDate date={weatherData.date} />
-                  </li>
-
-                  <br />
-                  <li>{weatherData.description}</li>
-                  <li>Humidity: {weatherData.humidity}%</li>
-                  <li>Wind: {weatherData.wind}km/h</li>
-                </ul>
-              </div>
-            </div>
-            <h3>{weatherData.suggestion}</h3>
+            <WeatherInfo data={weatherData} />
           </div>
-          <h2 className="week">
-            <i className="fa-solid fa-calendar-days"></i> Get ready for the Week
-          </h2>
-
-          <div className="weather-forecast d-block" id="forecast"></div>
-
-          <div
-            className="weather-forecast d-none"
-            id="forecast-farenheit"
-          ></div>
-
-          <footer>
-            Coded by
-            <strong> Gio Lamadrid </strong>
-            <a
-              href="https://github.com/digitaleAffen/weather-app-react-2"
-              target="_blank"
-            >
-              open-sourse on GitHub
-            </a>
-            <img src={logo} className="App-logo" alt="logo" width="40px" />
-          </footer>
         </div>
       </div>
     );
   } else {
-    const apiKey = "a43564c91a6c605aeb564c9ed02e3858";
-    let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(handleResponse);
-    console.log(apiUrl);
-
+    search();
     return "Loading data...";
   }
 }
