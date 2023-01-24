@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import CurrentDate from "./CurrentDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
   return (
@@ -11,14 +12,9 @@ export default function WeatherInfo(props) {
             <i className="fa-solid fa-calendar-day"></i> Today in
           </h2>
           <h1>{props.data.city}</h1>
-
-          <img
-            src={props.data.imgLink}
-            alt="cloudy day"
-            width="100"
-            className="float-left"
-            id="icon"
-          />
+          <div className="float-left">
+            <WeatherIcon code={props.data.icon} />
+          </div>
         </div>
 
         <div className="col-4">
