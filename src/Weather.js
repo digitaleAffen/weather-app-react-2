@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import logo from "./logo.svg";
 import "./Weather.css";
+import CurrentDate from "./CurrentDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -12,8 +13,7 @@ export default function Weather(props) {
       ready: true,
       city: response.data.name,
       temperature: response.data.main.temp,
-      currentDay: "Thursday",
-      currentHour: "20:20",
+      date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -25,7 +25,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     // todo
     return (
-      <div ClassName="Today">
+      <div className="Today">
         <div className="Container project">
           <div className="card">
             <form id="city-form" className="mb-3">
@@ -36,7 +36,7 @@ export default function Weather(props) {
                     placeholder="Type a City..."
                     id="city-input"
                     className="form-control"
-                    autocomplete="on"
+                    autoComplete="on"
                   />
                 </div>
                 <div className="col-3">
@@ -87,8 +87,9 @@ export default function Weather(props) {
               </div>
               <div className="col-3">
                 <ul>
-                  <li className="day">{weatherData.currentDay}</li>
-                  <li>{weatherData.currentHour}</li>
+                  <li>
+                    <CurrentDate date={weatherData.date} />
+                  </li>
 
                   <br />
                   <li>{weatherData.description}</li>
