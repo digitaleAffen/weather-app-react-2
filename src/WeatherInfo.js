@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import CurrentDate from "./CurrentDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -19,19 +20,8 @@ export default function WeatherInfo(props) {
 
         <div className="col-4">
           <div className="today-temperature">
-            <span className="temperature">
-              {Math.round(props.data.temperature)}
-            </span>
+            <WeatherTemperature celsius={props.data.temperature} />
 
-            <span className="units">
-              <span href="#" id="celsius-link" className="active">
-                °C
-              </span>{" "}
-              |
-              <span href="#" id="fahrenheit-link">
-                °F
-              </span>
-            </span>
             <ul>
               <li id="feels-like"></li>
             </ul>
