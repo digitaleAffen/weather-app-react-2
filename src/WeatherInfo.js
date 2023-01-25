@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import CurrentDate from "./CurrentDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
@@ -14,7 +13,7 @@ export default function WeatherInfo(props) {
           </h2>
           <h1>{props.data.city}</h1>
           <div className="float-left">
-            <WeatherIcon code={props.data.icon} />
+            <WeatherIcon code={props.data.icon} size={72} />
           </div>
         </div>
 
@@ -43,28 +42,6 @@ export default function WeatherInfo(props) {
 
         <h3>{props.data.suggestion}</h3>
       </div>
-
-      <h2 className="week">
-        <i className="fa-solid fa-calendar-days"></i> Get ready for the Week
-      </h2>
-
-      <div className="weather-forecast d-block" id="forecast"></div>
-
-      <div className="weather-forecast d-none" id="forecast-farenheit"></div>
-      {/* </div> */}
-
-      <footer>
-        Coded by
-        <strong> Gio Lamadrid </strong>
-        <a
-          href="https://github.com/digitaleAffen/weather-app-react-2"
-          target="_blank"
-          rel="noreferrer"
-        >
-          open-sourse on GitHub
-        </a>
-        <img src={logo} className="App-logo" alt="logo" width="40px" />
-      </footer>
     </div>
   );
 }

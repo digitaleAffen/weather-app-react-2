@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import logo from "./logo.svg";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -66,7 +68,25 @@ export default function Weather(props) {
               </div>
             </form>
             <WeatherInfo data={weatherData} />
+          </div>{" "}
+          <h2 nameClass="week">
+            <i nameClass="fa-solid fa-calendar-days"></i> Get ready for the Week
+          </h2>
+          <div className="card">
+            <WeatherForecast />
           </div>
+          <footer>
+            Coded by
+            <strong> Gio Lamadrid </strong>
+            <a
+              href="https://github.com/digitaleAffen/weather-app-react-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              open-sourse on GitHub
+            </a>
+            <img src={logo} className="App-logo" alt="logo" width="40px" />
+          </footer>
         </div>
       </div>
     );
