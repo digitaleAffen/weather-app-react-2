@@ -8,8 +8,9 @@ import WeatherForecast from "./WeatherForecast";
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
-    console.log(response.data);
+    // console.log(response.data);
 
     setWeatherData({
       ready: true,
@@ -30,7 +31,7 @@ export default function Weather(props) {
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(handleResponse);
-    console.log(apiUrl);
+    // console.log(apiUrl);
   }
 
   function handleSubmit(event) {
