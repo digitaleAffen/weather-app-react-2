@@ -28,7 +28,9 @@ export default function CurrentDate(props) {
 
   return (
     <div>
-      <span className="day">{day},</span> {hours}:{minutes} h
+      <span className="day">{day},</span>
+      <br />
+      {hours}:{minutes} h
     </div>
   );
 }
