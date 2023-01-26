@@ -5,10 +5,10 @@ import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
-  let [forecastTemp, setForecastTemp] = useState(null);
+  let [forecastData, setForecastData] = useState(null);
 
   function handleResponse(response) {
-    setForecastTemp(response.data.daily);
+    setForecastData(response.data.daily);
     setLoaded(true);
     console.log(response.data.daily);
   }
@@ -18,7 +18,7 @@ export default function WeatherForecast(props) {
       <div className="weatherForecast">
         <div className="row">
           <div className="col">
-            <WeatherForecastDay forecastTemp={forecastTemp[0]} />
+            <WeatherForecastDay forecastData={forecastData[1]} />
           </div>
         </div>
       </div>
