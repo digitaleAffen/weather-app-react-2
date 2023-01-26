@@ -21,14 +21,16 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
       suggestion: "Remember to take your umbrella!",
+      coordinates: response.data.coord,
     });
   }
 
   function search() {
-    const apiKey = "a43564c91a6c605aeb564c9ed02e3858";
+    const apiKey = "47197b56a0c0163cd5fa08701bd89102";
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(handleResponse);
+    console.log(apiUrl);
   }
 
   function handleSubmit(event) {
@@ -69,11 +71,11 @@ export default function Weather(props) {
             </form>
             <WeatherInfo data={weatherData} />
           </div>{" "}
-          <h2 nameClass="week">
-            <i nameClass="fa-solid fa-calendar-days"></i> Get ready for the Week
+          <h2 className="week">
+            <i className="fa-solid fa-calendar-days"></i> Get ready for the Week
           </h2>
           <div className="card">
-            <WeatherForecast />
+            <WeatherForecast coordinates={weatherData.coordinates} />
           </div>
           <footer>
             Coded by
