@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
@@ -6,6 +6,20 @@ import WeatherForecastDay from "./WeatherForecastDay";
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecastData, setForecastData] = useState(null);
+
+  // para cambiar los datos del forecast una vez se busca una nueva ciudad, en React se utiliza UseEffect
+  useEffect(
+    () => {
+      setLoaded(false);
+      // {set loaded false}
+    },
+    [props.coordinates]
+    //[if the coordinates change]
+  );
+
+  //goal: {set loaded false} => [if the coordinates change]
+  // [if the coordinates change] [input]: this is an array of variables, that I will tell to react to trigger the {other} code if this one change.
+  // {set loaded false}
 
   function handleResponse(response) {
     setForecastData(response.data.daily);
