@@ -2,8 +2,10 @@ import React from "react";
 import CurrentDate from "./CurrentDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import Suggestion from "./Suggestion";
 
 export default function WeatherInfo(props) {
+  // console.log(props.data);
   return (
     <div className="WeatherInfo">
       <div className="row">
@@ -22,7 +24,7 @@ export default function WeatherInfo(props) {
             <WeatherTemperature celsius={props.data.temperature} />
 
             <ul>
-              <li id="feels-like"></li>
+              <li>Real Feel: {Math.round(props.data.feels)}°</li>
             </ul>
           </div>
         </div>
@@ -35,12 +37,19 @@ export default function WeatherInfo(props) {
 
             <br />
             <li>{props.data.description}</li>
-            <li>Humidity: {props.data.humidity}%</li>
-            <li>Wind: {props.data.wind}km/h</li>
+            <li>
+              <i class="fa-solid fa-droplet"></i> Humidity:{" "}
+              {props.data.humidity}%
+            </li>
+            <li>
+              <i class="fa-solid fa-wind"></i> Wind: {props.data.wind}km/h
+            </li>
           </ul>
         </div>
 
-        <h3>{props.data.suggestion}</h3>
+        <h3>
+          <Suggestion message={props.data.suggestion} />
+        </h3>
       </div>
     </div>
   );
