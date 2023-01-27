@@ -10,8 +10,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    // console.log(response.data);
-
     setWeatherData({
       ready: true,
       city: response.data.name,
@@ -23,6 +21,7 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       suggestion: "Remember to take your umbrella!",
       coordinates: response.data.coord,
+      feels: response.data.main.feels_like,
     });
   }
 
@@ -73,7 +72,7 @@ export default function Weather(props) {
             <WeatherInfo data={weatherData} />
           </div>{" "}
           <h2 className="week">
-            <i className="fa-solid fa-calendar-days"></i> Get ready for the Week
+            <i class="fa-solid fa-calendar-days"></i> Get ready for the Week
           </h2>
           <div className="card">
             <WeatherForecast coordinates={weatherData.coordinates} />
