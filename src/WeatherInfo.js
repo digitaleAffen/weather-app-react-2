@@ -48,7 +48,7 @@ export default function WeatherInfo(props) {
         </div>
 
         <h3>
-          <Suggestion message={props.data.suggestion} />
+          <Suggestion celsius={props.data.temperature} />
         </h3>
       </div>
     </div>
