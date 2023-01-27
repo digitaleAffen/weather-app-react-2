@@ -54,7 +54,6 @@ export default function Weather(props) {
                   <input
                     type="search"
                     placeholder="Type a City..."
-                    id="city-input"
                     className="form-control"
                     autoComplete="on"
                     onChange={updateCity}
@@ -72,7 +71,7 @@ export default function Weather(props) {
             <WeatherInfo data={weatherData} />
           </div>{" "}
           <h2 className="week">
-            <i class="fa-solid fa-calendar-days"></i> Get ready for the Week
+            <i className="fa-solid fa-calendar-days"></i> Get ready for the Week
           </h2>
           <div className="card">
             <WeatherForecast coordinates={weatherData.coordinates} />
