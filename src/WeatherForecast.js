@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
-import WeatherForecastDay from "./WeatherForecastDay";
+import WeatherForecastDayMetric from "./WeatherForecastDayMetric";
+import WeatherForecastDayImperial from "./WeatherForecastDayImperial";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
@@ -35,7 +36,14 @@ export default function WeatherForecast(props) {
             if (index < 6) {
               return (
                 <div className="col" key={index}>
-                  <WeatherForecastDay forecastData={dailyForecast} />
+                  <WeatherForecastDayMetric
+                    forecastData={dailyForecast}
+                    className="d-block"
+                  />
+                  <WeatherForecastDayImperial
+                    forecastData={dailyForecast}
+                    className="d-none"
+                  />
                 </div>
               );
             } else {
