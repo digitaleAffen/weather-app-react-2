@@ -24,21 +24,21 @@ export default function WeatherForecast(props) {
   function handleResponse(response) {
     setForecastData(response.data.daily);
     setLoaded(true);
-    console.log(response.data.daily);
+    // console.log(response.data.daily);
   }
 
   if (loaded) {
     return (
       <div className="weatherForecast">
         <div className="row">
+          <h2 className="week">
+            <i className="fa-solid fa-calendar-days"></i> Get ready for the Week
+          </h2>
           {forecastData.map(function (dailyForecast, index) {
             if (index < 6) {
               return (
                 <div className="col" key={index}>
-                  <WeatherForecastDayMetric
-                    forecastData={dailyForecast}
-                    className="d-block"
-                  />
+                  <WeatherForecastDayMetric forecastData={dailyForecast} />
                 </div>
               );
             } else {

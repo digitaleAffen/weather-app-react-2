@@ -18,6 +18,12 @@ Body {
   box-shadow: rgba(0, 0, 0, 0.1) 1px 5px 5px;
 }
 
+.weather-forecast-container {
+  margin-top: 20px;
+  padding: 0px 0px 15px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 5px 5px;
+}
+
 .city {
   color: #797979;
 }
@@ -40,7 +46,8 @@ Body {
 }
 
 .week {
-  margin: 20px 8px;
+  margin: 0 0 10px 12px;
+  text-align: left;
 }
 
 .units {
@@ -79,12 +86,15 @@ Body {
   box-shadow: rgb(244, 108, 96 /25%);
 }
 
+.weatherForecats-day {
+  font-weight: bold;
+}
+
 h1 {
   color: #878787;
   display: block;
   font-size: 40px;
   line-height: 28px;
-  margin-bottom: 0;
   text-align: left;
 }
 
@@ -134,4 +144,23 @@ a {
 
 a:hover {
   color: rgb(246, 152, 144);
+}
+
+@media (max-width: 768px) {
+  .city {
+    text-align: center;
+  }
+
+  .today-temperature {
+    text-align: center;
+  }
+
+  ul {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 54px;
+    text-align: center;
+  }
 }

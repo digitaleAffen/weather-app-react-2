@@ -50,7 +50,7 @@ export default function Weather(props) {
           <div className="card">
             <form onSubmit={handleSubmit} className="mb-3">
               <div className="row">
-                <div className="col-9">
+                <div className="col-md-9">
                   <input
                     type="search"
                     placeholder="Type a City..."
@@ -59,7 +59,7 @@ export default function Weather(props) {
                     onChange={updateCity}
                   />
                 </div>
-                <div className="col-3">
+                <div className="col-md-3">
                   <input
                     type="submit"
                     value="search"
@@ -70,10 +70,7 @@ export default function Weather(props) {
             </form>
             <WeatherInfo data={weatherData} />
           </div>{" "}
-          <h2 className="week">
-            <i className="fa-solid fa-calendar-days"></i> Get ready for the Week
-          </h2>
-          <div className="card">
+          <div className="card weather-forecast-container d-none d-md-block">
             <WeatherForecast coordinates={weatherData.coordinates} />
           </div>
           <footer>
@@ -84,9 +81,9 @@ export default function Weather(props) {
               target="_blank"
               rel="noreferrer"
             >
-              open-sourse on GitHub
+              <img src={logo} className="App-logo" alt="logo" width="40px" />
+              Open-sourse on GitHub
             </a>
-            <img src={logo} className="App-logo" alt="logo" width="40px" />
           </footer>
         </div>
       </div>

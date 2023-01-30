@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import "./Weather.css";
 
 export default function WeatherForecastDayMetric(props) {
   // Forecast Temperature Celsius
