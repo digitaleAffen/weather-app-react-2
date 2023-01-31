@@ -57,33 +57,33 @@ Body {
 }
 
 .btn-primary {
-  background-color: rgb(244, 108, 96);
-  border-color: rgb(244, 108, 96);
+  background-color: #c3bef0;
+  border-color: #c3bef0;
 }
 
 .btn-primary:hover {
   background: white;
-  color: rgb(244, 108, 96);
-  border-color: rgb(244, 108, 96);
+  color: #c3bef0;
+  border-color: #c3bef0;
 }
 
 .btn-primary:active {
   background: white;
-  color: rgb(244, 108, 96);
-  border-color: rgb(244, 108, 96);
-  box-shadow: rgb(244, 108, 96 /25%);
+  color: #c3bef0;
+  border-color: #c3bef0;
+  box-shadow: rgb(195, 190, 240 /25%);
 }
 
 .btn-primary:focus {
-  background-color: rgb(244, 108, 96);
-  border-color: rgb(244, 108, 96);
-  box-shadow: rgb(244, 108, 96 /25%);
+  background-color: #c3bef0;
+  border-color: #c3bef0;
+  box-shadow: rgb(195, 190, 240 /25%);
   color: white;
 }
 
 .form-control:focus {
-  border-color: rgb(244, 108, 96);
-  box-shadow: rgb(244, 108, 96 /25%);
+  border-color: #c3bef0;
+  box-shadow: rgb(195, 190, 240 /25%);
 }
 
 .weatherForecats-day {
@@ -138,12 +138,12 @@ canvas {
 }
 
 a {
-  color: rgb(244, 108, 96);
+  color: #c3bef0;
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(246, 152, 144);
+  color: #cadefc;
 }
 
 @media (max-width: 768px) {
