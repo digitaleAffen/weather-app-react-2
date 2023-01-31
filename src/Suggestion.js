@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function WeatherMessage(props) {
   let celsius = props.celsius;
   //   console.log(celsius);
