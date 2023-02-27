@@ -18,6 +18,12 @@ Body {
   box-shadow: rgba(0, 0, 0, 0.1) 1px 5px 5px;
 }
 
+.search-row {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 10px;
+}
+
 .weather-forecast-container {
   margin-top: 20px;
   padding: 0px 0px 15px 0px;
